@@ -45,7 +45,7 @@ function Login() {
         </div>
         <button type="submit">login</button>
       </form>
-      <link to={"/register"}> Register </link>
+      <Link to={"/register"}> Register </Link>
     </section>
   );
 }

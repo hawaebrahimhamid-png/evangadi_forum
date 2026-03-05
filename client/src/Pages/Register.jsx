@@ -71,7 +71,7 @@ function Register() {
         </div>
         <button type="submit">Register</button>
       </form>
-      <link to={"/login"}> login </link>
+      <Link to={"/login"}> login </Link>
     </section>
   );
 }
