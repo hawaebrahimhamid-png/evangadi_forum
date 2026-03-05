@@ -1,14 +1,14 @@
 import { useRef } from "react";
 import React from "react";
 import axios from "../AxiosConfig";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Register() {
   const navigate = useNavigate();
-  const userNameDom = useRef(null);
-  const firstNameDom = useRef(null);
-  const lastNameDom = useRef(null);
-  const emailDom = useRef(null);
-  const passwordDom = useRef(null);
+  const userNameDom = useRef();
+  const firstNameDom = useRef();
+  const lastNameDom = useRef();
+  const emailDom = useRef();
+  const passwordDom = useRef();
 
   async function handlSubmit(e) {
     e.preventDefault();
@@ -71,6 +71,7 @@ function Register() {
         </div>
         <button type="submit">Register</button>
       </form>
+      <link to={"/login"}> login </link>
     </section>
   );
 }

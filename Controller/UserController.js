@@ -72,7 +72,7 @@ async function login(req, res) {
     });
     return res
       .status(StatusCodes.OK)
-      .json({ msg: "user login successful", token });
+      .json({ msg: "user login successful", token, username });
     // return res.json({ user: user[0].password });
   } catch (error) {
     console.log(error.message);
