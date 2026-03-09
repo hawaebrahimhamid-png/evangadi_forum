@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5200;
 
 const cors = require("cors");
 app.use(cors());
@@ -23,13 +23,21 @@ app.use("/api/users", userRoutes);
 app.use("/api/questions", AuthMiddleware, questionsRoutes);
 async function start() {
   try {
-    await dbConnection.execute("select 1");
     app.listen(port, () => {
-      console.log("database connection established");
       console.log(`listening on ${port}`);
     });
+
+    try {
+      await dbConnection.execute("select 1");
+      console.log("database connection established");
+    } catch (error) {
+      console.log("database connection failed");
+      console.log(error.message);
+    }
   } catch (error) {
+    console.log("server failed to start");
     console.log(error.message);
+    process.exit(1);
   }
 }
 
